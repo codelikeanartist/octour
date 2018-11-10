@@ -1,0 +1,15 @@
+/* custom styles can go here */
+
+#chapter-foo p {
+	text-transform: uppercase;
+}
+
+.backed h2 {
+    color:#ffffff;
+}
+  
+.backed {
+    background: rgba(50,50,50,0.5);
+    color:#ffffff;
+}
+
