@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Blockchain hash</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+  <!--
+  <script src="sha256.js"></script>
+  <script src="aes.js"></script>
+  <script src="hmac-sha256.js"></script>
+  -->
+</head>
+<body>
+
+<p>Bitcoin/blockchain hashing function</p>
+<br><hr><br>
+<p>Set the data</p>
+<textarea id="data" oninput="getText()">
+Enter some text you want to be hashed 
+(at the bitcoin level, this would be the block you would like to sign)
+</textarea>
+
+<p>Set difficulty:<input type="range" id="diffin" min="0" max="5" value="0" onchange="getDiff()">
+Higher values take longer</p>
+<br>
+
+<p id="diff">Difficulty</p>
+<p id="hash">Hash value</p>
+<p id="iters">Iterations</p>
+<br><hr><br>
+
+<script>
+
+var difficulty = ""  // tested up to 0000
+
+document.getElementById("diff").value = 0
+
+document.getElementById("data").rows = 5
+document.getElementById("data").cols = 50
+
+function getDiff() {
+    var df = document.getElementById("diffin").value;
+    difficulty = ""
+    for (;df>0;df--){
+        difficulty += "0"
+    }
+    document.getElementById("diff").innerHTML = "Difficulty: " + difficulty;
+    getText()
+}
+
+function getText() {
+    var dt = document.getElementById("data").value;
+    document.getElementById("iters").innerHTML = "Iterations: ... computing ...";
+    setTimeout(hash,10,dt) // calls hash after 10ms to allow rendering
+}
+
+function hash(data){
+    var nonce = 678
+    var iters = 0
+    var h = "" // we could add the hash of the previous block here ....
+    do {
+        var s = CryptoJS.SHA256(h + data + nonce.toString()).toString();
+        if (iters > 100000){
+            s = "... could not complete. Too difficult ..."
+            break
+        }
+        iters++
+        nonce += iters
+
+    } while (s.search(difficulty) != 0)
+
+    document.getElementById("hash").innerHTML = "Hash value: " + s;
+    document.getElementById("iters").innerHTML = "Iterations: " + iters.toString();
+
+}
+
+</script>
+<!--
+<p>Chaining Blocks includes HASH from previous block</p>
+<image src="blockchain_structure-768x405.png" width="400px">http://learningspot.altervista.org/bitcoin-blocks/
+</image>
+-->
+
+</body>
+</html>
+

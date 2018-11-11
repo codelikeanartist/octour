@@ -1,0 +1,391 @@
+<html>
+<head>
+<title>Online JavaScript Interpreter with Graphics</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/two.js/0.6.0/two.min.js"></script>
+<script>
+
+/*
+This page contains JavaScript functions that evaluate interactive
+JavaScript locally in a browser
+
+Version of Jan 3, 2013, (c) Peter Jipsen http://www.chapman.edu/~jipsen
+Latest version at http://www.chapman.edu/~jipsen/js
+If you use it on a webpage, please send the URL to jipsen@chapman.edu
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or (at
+your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License (at http://www.gnu.org/copyleft/gpl.html)
+for more details.
+*/
+
+var two;
+var elem;
+var twoInit = 0;
+
+JSoutput = function(a) {
+    var str = "["
+    if (typeof(a)=="object" && a.length) {
+        for (var i=0; i < a.length; i++)
+            if (typeof(a[i])=="object" && a[i].length) {
+                str += (i==0?"":" ")+"["
+                for (var j=0; j<a[i].length; j++)
+                    str += a[i][j]+(j==a[i].length-1?
+                            "]"+(i==a.length-1?"]":",")+"\n":", ");
+            } else str += a[i]+(i==a.length-1?"]":", ");
+    } else str = a;
+    return str;
+}
+
+write = function(str) {
+    var outnode = document.getElementById("JSoutput");
+    outnode.value += JSoutput(str);
+}
+
+writeln = function(str) {
+    if (!str) str="";
+    var outnode = document.getElementById("JSoutput");
+    outnode.value += JSoutput(str)+"\n";
+}
+
+box = function(a,b,c,d){
+    // make rectangle: center x, center y, width x, height y
+    // convert to x0,y0,x1,y1
+    var b = two.makeRectangle(a+c/2,b+d/2,c-a,d-b);
+    b.fill = "#000000"; // or "rgb(r,g,b)"
+    //b.stroke = 2;
+    b.noStroke();
+    return b;
+}
+
+line = function(a,b,c,d){
+    var l = two.makeLine(a,b,c,d);
+    l.linewidth = 5;
+    return l;
+}
+
+JSrun = function() {
+    // create graphics object first
+    if (0 == twoInit){
+        twoInit = 1;
+        elem = document.getElementById('JSgraphics');
+        // var w = document.getElementById('txt').width;
+        //var w = document.getElementById('JSprogram').clientWidth;
+        var w = document.getElementById('txt').clientWidth;
+        var params = { width: w - 20, height: 400 };
+        two = new Two(params).appendTo(elem);
+    }
+    two.clear();
+
+
+//     var rect = two.makeRectangle(0, 0, 50, 50);
+//     rect.fill = 'rgb(0, 200, 255)';
+//     rect.opacity = 0.75;
+//     rect.noStroke();
+
+    var str;
+    var outnode = document.getElementById("JSoutput");
+    outnode.value = "";
+    d = new Date().getTime();
+    try {
+        with (Math) {
+            str = JSoutput(eval(document.getElementById("JSprogram").value));
+        }
+    } catch(e) {
+        str = e.name+" at line "+(e.lineNumber-56)+": "+e.message;
+    }
+    var tnode = document.getElementById("JStiming");
+    tnode.innerHTML = ""+(new Date().getTime()-d)/1000;
+    if (str != undefined) {outnode.value += str;}
+    two.update();
+}
+
+JSselect = function() {
+    var id = document.getElementById("JSexamples").value;
+    var str = document.getElementById(id).value;
+    document.getElementById("JSprogram").value = str;
+    JSrun();
+}
+
+keyUp = function(event){
+  if (event.which==77 && event.ctrlKey) JSrun();
+}
+
+random_list = function(n, r, s) {
+    var a = [];
+    for (var i = 0; i < n; i++) {
+	a[i] = Math.floor(Math.random()*(s-r+1)) + r;
+    }
+    return a;
+}
+
+random_matrix = function(m, n, r, s) {
+    var A = [];
+    for (var i = 0; i < m; i++) {
+        A[i] = [];
+        for (var j = 0; j < n; j++)
+            A[i][j] = Math.floor(Math.random()*(s-r+1)) + r;
+    }
+    return A;
+}
+
+factorial = function(n) { // simple version
+    if (n <= 0) return 1;
+    else return n*factorial(n-1);
+}
+
+</script>
+<style>td {background:white; vertical-align:top; border:1px solid black; padding:2px 10px}
+pre {margin:0}
+table {border-collapse:collapse; table-layout:fixed}
+body {background:lightblue; font-family:Arial}
+textarea {font-family:Lucida console}
+</style>
+</head>
+<body onload="JSrun()"><!-- onpaste="return false;"-->
+<table id="txt" width="100%">
+<tr><td><b>Type JavaScript</b> &nbsp; &nbsp; Examples: <select id="JSexamples" onchange="JSselect()">
+<option value="base">Convert base</option>
+<option value="maximum" selected>Maximum element</option>
+<option value="factorial">Factorial recursion</option>
+<option value="graphics">Graphics</option>
+<option value="random">Random matrix</option>
+</select>
+</td><td>
+<input type="button" value="Run (Ctrl-m)" onclick="JSrun()"/> &nbsp; &nbsp;
+<b>Graphics</b>
+</td></tr>
+<tr><td width="50%" style="padding:1px">
+<p>Program code</p>
+<textarea id="JSprogram" style="height:4in; width:100%; font-family: monospace; font-size: 16; font-weight: bold;" onkeyup="keyUp(event)">
+// Convert a positive base 10 integer to another base
+
+convert = function(n,b) {
+    var m = [];
+    while (n > 0) {
+        m = [n % b].concat(m);
+        n = floor(n/b);
+    }
+    return m;
+}
+
+convert(123456789,5);
+
+
+</textarea>
+</td>
+<td id="JSgraphics" width="50%" min-width="50%" style="padding:1px">
+</td>
+</tr>
+<tr width="100%" min-width="100%" style="padding:1px">
+<td width="50%" min-width="50%" style="padding:1px">
+<p><b>Text output</b> &nbsp; &nbsp;
+Timing: <span id="JStiming"></span> s
+</p>
+<textarea id="JSoutput" style="height:4in; width:100%; min-width:100%; font-family: monospace; font-size: 16; font-weight: bold;">
+</textarea>
+</td>
+<td width="50%">
+<table >
+<tr>
+<td><b>Comment</b></td>
+<td style="border:none;">
+<pre>// this is a one-line comment
+/* this comment could contain linebreaks */
+</pre></td>
+</tr>
+<tr>
+<td><b>Constant</b></td>
+<td style="border:none;"><tt><b>numbers</b> 12.3 <b>and strings</b> "hi", "hi".charAt(0) <b>is</b> "h"</tt></td>
+</tr>
+<tr>
+<td><b>Variable</b></td>
+<td style="border:none;"><tt><b>start with a letter, then use letters, digits or _ (declared with</b> var<b>)</b></tt></td>
+</tr>
+<tr>
+<td><b>Expression</b></td>
+<td style="border:none;"><tt><b>built from</b> +, -, *, /, pow(x,y), sqrt(), PI, E, log(), floor(), ceil(),</br>
+random(), sin(), cos(), tan(), atan() <b>and constants, variables, functions</b></tt></td>
+</tr>
+<tr>
+<td><b>Assignment</b></td>
+<td style="border:none;"><pre>v = expression;</pre></td>
+</tr>
+<tr>
+<td><b>Block</b></td>
+<td style="border:none;"><pre>{   statement 1;
+    ...
+    statement n;
+}</pre></td>
+</tr>
+<tr>
+<td><b>Condition</b></td>
+<td style="border:none;"><tt>expression == expression <b>or</b> <=, <, >, >=, !=...<br>
+<b>or</b> !cond, cond1 && cond2, cond1 || cond2</tt></td>
+</tr>
+<tr>
+<td><b>if - else</b></td>
+<td style="border:none;"><pre>if (condition) block 1
+else block 2                   // optional
+</pre></td>
+</tr>
+<tr>
+<td><b>for-loop</b></td>
+<td style="border:none;"><pre>for (var i=start; endcondition; i++)
+    block
+</pre></td>
+</tr>
+<tr>
+<td><b>while-loop</b></td>
+<td style="border:none;"><pre>while (condition)
+    block
+</pre></td>
+</tr>
+<tr>
+<td><b>Function</b></td>
+<td style="border:none;"><pre>f = function(v1, ..., vn) {
+    statement 1;
+    ...
+    return expression;
+}
+</pre></td>
+</tr>
+<tr>
+<td><b>List</b> (array)</td>
+<td style="border:none;"><pre>a = [1,2,"hi"]
+a[0] is 1, a.length is 3, a+[4] is [1,2,"hi",4]</pre></td>
+</tr>
+<tr>
+<td><b>Output</b></td>
+<td style="border:none;"><pre>write("Hello"); writeln(" world");
+</pre></td>
+</tr>
+<tr>
+<td><b>Graphcs</b></td>
+<td style="border:none;"><pre>var r = box(x0,y0,x1,y1); var l = line(x0,y0,x1,y1);
+attributes: l.linewidth=6; r.fill = "rgb(255,127,0)";
+</pre></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<b>Note that this is dynamic code running locally on your machine.  If
+you leave this page before copying and saving your work, it may
+disappear.
+</b>
+
+<p>
+<b>Quick reference to basic JavaScript commands</b>. Search online
+for <a href="http://www.google.com/search?q=javascript+tutorial">tutorials</a>
+</p>
+
+<p>
+This page is useful for experimenting with basic JavaScript and simple
+algorithms (e.g. those covered in a discrete mathematics course). It
+should work in any browser that has JavaScript enabled (including
+smartphone browsers).
+</p>
+
+<p>
+You can save your own local copy of this page (using <b>Save As...</b>),
+and use it even when you are not connected to the internet.
+</p>
+
+<textarea id="random" style="display:none">
+// Construct a 2D matrix  m*n  random integers from  r  to  s
+random_matrix = function(m, n, r, s) {
+    var A = [];
+    for (var i = 0; i < m; i++) {
+        A[i] = [];
+        for (var j = 0; j < n; j++)
+            A[i][j] = Math.floor(Math.random()*(s-r+1)) + r;
+    }
+    return A;
+}
+// graphic output
+d = 4; h=250 // height of graphic area
+a = random_matrix(d,d,0,1)
+writeln(a)
+for (i=0;i<d;i++)
+ for(j=0;j<d;j++){
+  b=box(j*(h/d),i*(h/d),j*(h/d)+(h/(d+1)),i*(h/d)+(h/(d+1)))
+  b.fill = "rgb(" + 255*a[i][j].toString() + ",128,128)"
+}
+
+</textarea>
+
+<textarea id="maximum" style="display:none">
+// Find the maximum value in a list of numbers
+
+max = function(a) {
+    var m = a[0];
+    for (var i = 1; i < a.length; i++) {
+        writeln("m = "+m);
+	if (m < a[i]) m = a[i];
+    }
+    return m;
+}
+
+a = random_list(6,1,10);
+writeln(a);
+max(a);
+</textarea>
+
+
+<textarea id="base" style="display:none">
+// Convert a positive base 10 integer to another base
+
+convert = function(n,b) {
+    var m = [];
+    while (n > 0) {
+        m = [n % b].concat(m);
+        n = floor(n/b);
+    }
+    return m;
+}
+
+convert(123456789,5);
+</textarea>
+
+<textarea id="factorial" style="display:none">
+// Calculate the factorial of a natural number using recursion
+factorialw = function(n) { // write intermediate results
+    var k;
+    if (n <= 0) return 1;
+    else {
+        writeln("n = "+n);
+        k = n*factorialw(n-1);
+        writeln("k = "+k);
+        return k;
+    }
+}
+factorialw(6);
+</textarea>
+
+<textarea id="graphics" style="display:none" height="400px">
+// graphics funtions
+for (x=0;x<600;x+=50){
+  b=random_list(4,1,5);
+  var r = box(x+5*b[0],25+5*b[1],x+50+2*b[2],50+2*b[3]);
+  r.fill = "#ff00ff";
+}
+var l = line(10*b[0],10*b[1],10*b[2],10*b[3]);
+
+</textarea>
+<hr/>
+
+<div align="center">
+<a href="http://www.chapman.edu/~jipsen/">Peter Jipsen</a>,
+January 2013,
+<a href="http://www.chapman.edu/">Chapman University</a>
+</div>
+
+</body>
+</html>

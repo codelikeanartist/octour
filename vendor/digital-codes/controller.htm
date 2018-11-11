@@ -1,0 +1,147 @@
+<HTML>
+<HEAD>
+	<TITLE> Controller</TITLE>
+        <meta charset="utf-8">
+        <script src="controller.js"></script>
+        <script type="text/javascript">window.onload=reset</script>
+        <style>
+            .col {
+                font-family: "Lucida Console", monospace, Monospace;
+                font-size: 0.8em;
+                text-align:center;
+            }
+            .tbl {
+                font-family: "Lucida Console", monospace, Monospace;
+                font-size: 1.1em;
+            }
+            body {
+                font-family: sans-serif;
+                font-size: 1.0em;
+            }
+            
+        </style>
+
+	</HEAD>
+<BODY>
+
+        <p id="intro">
+        4-Bit Microprocessor Emulator 
+        </p>
+        <p id="instructions">
+        </p>
+        <p id="descriptions">
+        </p>
+        <p id="runctl">
+	Program Control: <INPUT type="button" value="RUN" onclick="run()" />
+	<INPUT type="button" value="STOP" onclick="stop()" />
+	<INPUT type="button" value="RESET" onclick="reset()" />
+	<INPUT type="button" value="Fast" onclick="speedUp()" />
+	<INPUT type="button" value="Slow" onclick="slowDown()" />
+	</p>
+	<p id="inport">
+	Input Port Control: <INPUT type="button" value="SET" onclick="setIn()" />
+	<INPUT type="button" value="CLR" onclick="clrIn()" />
+	</p>
+	<TABLE class="tbl" id="controller" style="width:1000px; max-width:100%;" border="2">
+		<TR valign="top">
+			<TD style="width:15%;" >
+                            <TABLE class="tbl" id="pc" style="width:100%;" border="1">
+                            <tr><th>Address</th></tr>
+                            <TR>
+                            <TD>
+                                <INPUT id="logic_pc" type="text" value="" name="Program Counter" disabled size="8" style="text-align:center;font-weight:bold;width:100%;"/>
+                            </TD>
+                            </TR>
+                            </TABLE>
+			</TD>
+			
+			<TD style="width:40%;">
+                            <TABLE class="tbl" id="romTable" style="width:100%;" border="1">
+                            <tr><th colspan=3>Program Memory</th></tr>
+                            <tr class="col">
+                            <td>ADDR</td><td>INSTR</td><td>DATA</td>
+                            </tr>
+                            <!--
+                            <TR>
+                            <TD>
+                                <INPUT type="text" value="0" name="name" disabled/>
+                            </TD>
+                            </TR>
+                            -->
+                            </TABLE>
+			</TD>
+
+			<TD style="width:15%;">
+                            <TABLE class="tbl" id="logic" style="width:100%;" border="1">
+                            <tr><th>Instr</th></tr>
+                            <TR><TD>
+                                <INPUT id="logic_idec" type="text" value="" name="name" readOnly size="8" style="text-align:center;font-weight:bold;width:100%;"/>
+                            </TD></TR>
+                            <tr><th>Data</th></tr>
+                            <TR><TD>
+                                <INPUT id="logic_data" type="text" value="" name="name" readOnly size="8" style="text-align:center;font-weight:bold;width:100%;"/>
+                            </TD></TR>
+                            <tr><th>ALU</th></tr>
+                            <TR><TD>
+                                <INPUT id="logic_alu" type="text" value="" name="name" readOnly size="8" style="text-align:center;font-weight:bold;width:100%;"/>
+                            </TD></TR>
+                            <tr><th>Z-Flag</th></tr>
+                            <TR><TD>
+                                <INPUT id="logic_zero" type="text" value="" name="name" readOnly size="8" style="text-align:center;font-weight:bold;width:100%;"/>
+                            </TD></TR>
+                            <tr><th>W-Register</th></tr>
+                            <TR><TD>
+                                <INPUT id="logic_w" type="text" value="" name="name" readOnly size="8" style="text-align:center;font-weight:bold;width:100%;"/>
+                            </TD></TR>
+                            </TABLE>
+			</TD>
+			<TD style="width:15%;">
+                            <TABLE class="tbl" id="ramWrap" style="width:100%;" border="0">
+                            <tr><td>
+                                <TABLE class="tbl" id="ramTable" style="width:100%;" border="1">
+                                <tr><th>Variables</th></tr>
+                                <!--
+                                <TR><td>
+                                    <INPUT type="text" value="" name="name" disabled/>
+                                </TD></TR>
+                                -->
+                                </TABLE>
+                            </td></tr>
+                            <tr><td>
+                                <TABLE  class="tbl" id="ramView" style="width:100%;" border="1">
+                                <tr><th colspan=2>Variable View</th></tr>
+                                <!--
+                                <TR><td>
+                                    <INPUT type="text" value="" name="name" disabled/>
+                                </TD></TR>
+                                -->
+                                </TABLE>
+                            </td></tr>
+                            </table>
+			</TD>
+			<TD style="width:15%;">
+                            <TABLE class="tbl" id="io" style="width:100%;" border="1">
+                            <tr><th>Input Port</th></tr>
+                            <TR>
+                            <TD>
+                                <INPUT id="inputport" type="text" value="" name="name" disabled size="8" style="text-align:center;font-weight:bold;width:100%;"/>
+                            </TD>
+                            </TR>
+                            <tr><th>Output Port</th></tr>
+                            <TR>
+                            <TD>
+                                <INPUT id="outputport" type="text" value="" name="name" disabled size="8" style="text-align:center;font-weight:bold;width:100%;"/>
+                            </TD>
+                            </TR>
+                            </TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<!-- >
+	<p id="log"></p>
+	<-->
+	<p id="loops"></p>
+
+
+</BODY>
+</HTML>

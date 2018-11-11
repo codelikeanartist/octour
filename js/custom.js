@@ -47,11 +47,3 @@ head.js("plugin/chalkboard/chalkboard.js");
 //});
 
 
-//math
-Reveal.configure({"math" : {"mathjax":"js/MathJax.js"}});
-
-head.ready("math.js", function () {
-	console.log("math");
-});
-head.js("plugin/math/math.js");
-
