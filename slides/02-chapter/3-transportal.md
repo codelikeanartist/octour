@@ -7,4 +7,4 @@ https://transparenz.karlsruhe.de
 
 <a href="https://www.karlsruhe.de/b4/stadtentwicklung/statistik" target="_blank">Besipiel: Statistik</a>
 <hr>
-<iframe width="100%" height="400" src="http://digital-codes.de/zkm/haushalte.htm" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="400" src="http://digital-codes.de/js/haushalte.htm" allowfullscreen="allowfullscreen" frameborder="0"></iframe>

@@ -9,6 +9,6 @@
 </div>
 
 <div class="column-right">
-<iframe width="100%" height="600" src="http://digital-codes.de/zkm/crypto_hash.htm" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="600" src="http://digital-codes.de/js/crypto_hash.htm" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 </div>

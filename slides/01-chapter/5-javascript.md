@@ -3,7 +3,7 @@ Große Auswahl ...
 Javascript: im Browser, online ...  
 
   
-<a href="http://digital-codes.de/zkm/jsonline.htm" target="_blank">http://digital-codes.de/zkm/jsonline.htm</a>
+<a href="http://digital-codes.de/js/jsonline.htm" target="_blank">http://digital-codes.de/js/jsonline.htm</a>
 
 
 ```javascript
