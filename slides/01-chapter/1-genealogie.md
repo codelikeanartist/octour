@@ -7,6 +7,6 @@ Informationen zu wesentlichen Meilensteinen in der Computertechnik von 1800 bis 
 
 </div>
 
-<div class="column-right">
+<div class="column-right-img">
 ![](https://zkm.de/media/styles/r17_720_dynamic/public/bild/413-genealogie-des-digitalen-codes.jpg?itok=6PLfg6xM)
 </div>

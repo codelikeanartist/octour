@@ -7,6 +7,6 @@ Mithilfe eines Elektroenzephalogramms (EEG), das Gehirnaktivitäten mittels Freq
 
 </div>
 
-<div class="column-right">
+<div class="column-right-img">
 ![](https://www.creativeapplications.net/wp-content/uploads/2018/04/Engram-Workflow.png)
 </div>

@@ -6,6 +6,6 @@
 
 </div>
 
-<div class="column-right">
+<div class="column-right-img">
 ![](https://zkm.de/media/styles/r17_720_dynamic/public/bild/425-kryptolab.jpg?itok=UODWEf8j)
 </div>

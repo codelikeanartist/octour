@@ -8,6 +8,6 @@ Jedes Sortierverfahren erreicht mit unterschiedlichen Abläufen dasselbe Ziel. A
 
 </div>
 
-<div class="column-right">
+<div class="column-right-img">
 ![](https://zkm.de/media/styles/r17_720_dynamic/public/bild/335-sound-sorting.jpg?itok=rEyYH3zq)
 </div>

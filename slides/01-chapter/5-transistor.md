@@ -7,6 +7,6 @@ Die Grundlage für alle weiteren elektronischen Entwicklungen: Schalten mit 0 un
 
 </div>
 
-<div class="column-right">
+<div class="column-right-img">
 ![](images/logic.png)
 </div>
