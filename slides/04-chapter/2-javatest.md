@@ -1,7 +1,14 @@
 ## Game of Life mit Javascript
 https://jsfiddle.net
 
+<div class="column-left">
+
 <iframe width="100%" height="400" src="https://jsfiddle.net/tk2e1875/8/embedded/js,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+</div>
+<div class="column-right-img">
+![](images/gol.svg)
+</div>
 
 <!--
 var gameOfLife = new terra.Terrarium(25, 25, {
