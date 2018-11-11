@@ -61,13 +61,13 @@ body {
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 2.2em; }
+  font-size: 2.0em; }
 
 .reveal h2 {
-  font-size: 1.5em; }
+  font-size: 1.3em; }
 
 .reveal h3 {
-  font-size: 1.3em; }
+  font-size: 1.2em; }
 
 .reveal h4 {
   font-size: 1em; }
@@ -176,7 +176,7 @@ body {
 .reveal code {
   font-family: "RobotoMono";
   font-weight: 600;
-  font-size: 1.3em;
+  font-size: 1.2em;
   text-transform: none; }
 
 .reveal pre code {
@@ -297,7 +297,7 @@ body {
   
 /* ak columns */  
 .column-left  {
-    width: 50%; 
+    width: 48%; 
     float:left;
     font-family: "RobotoCondensed"; 
     text-align: left;
@@ -308,10 +308,17 @@ body {
 }
 
 .column-right {
-    width: 50%; 
+    width: 48%; 
     float:right;
     font-family: "RobotoCondensed";
     text-align: left;
+}
+
+/* don't align images to left in right column */
+.column-right-img {
+    width: 48%; 
+    float:right;
+    font-family: "RobotoCondensed";
 }
 
 .column-right ul, .column-right p {

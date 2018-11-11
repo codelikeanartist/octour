@@ -1,0 +1,100 @@
+https://zkm.de/de/genealogie-des-digitalen-codes
+timeline.png
+
+
+3d reproduction:
+Hans Peter Hahn / Friedemann Neumann (Hg.)
+Dinge als Herausforderung
+Kontexte, Umgangsweisen und Umwertungen von Objekten
+https://www.transcript-verlag.de/chunk_detail_seite.php?doi=10.14361%2F9783839445136-004
+
+mann mit kamera
+https://www.youtube.com/watch?v=ug_bcES8vbY (camera1.mp4)
+https://www.youtube.com/watch?v=Jw131UtcaVc (camera2.mkv)
+https://absolutmedien.de/film/5608/Der+Mann+mit+der+Kamera (camera3.mp4)
+Hier:
+https://absolutmedien.de/bilddatenbank/bilder/5608/trailer.mp4
+
+
+yolo: 
+https://www.youtube.com/watch?v=VOC3huqHrss
+https://pjreddie.com/darknet/yolo/
+
+https://youtu.be/MPU2HistivI?t=3
+
+<iframe width="1221" height="687" src="https://www.youtube.com/embed/MPU2HistivI" frameborder="0" allow="accelerometer; autoplay; encrypted-
+media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Bond: https://youtu.be/VOC3huqHrss
+<iframe width="720" height="415" src="https://www.youtube.com/embed/VOC3huqHrss" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+teachable machine demo
+https://teachablemachine.withgoogle.com/
+
+emotions
+https://imotions.com/blog/facial-action-coding-system/
+https://mixedemotions-project.eu/humans-machines-who-is-better-reading-faces/
+https://youtu.be/EP9a6eiH9eE
+<iframe width="787" height="590" src="https://www.youtube.com/embed/EP9a6eiH9eE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+3d shader:
+threejs
+https://threejs.org/examples/webgl_water_flowmap.html
+https://threejs.org/examples/webgl_gpgpu_water.html  ( use large viscosity and big mouse)
+https://stemkoski.github.io/Three.js/Shader-Animate.html
+digital-codes.de/.../water.html, lave.htm
+
+
+melting memories:
+https://www.creativeapplications.net/vvvv/melting-memories-drawing-neural-mechanisms-of-cognitive-control/
+http://refikanadol.com/works/melting-memories/
+https://player.vimeo.com/video/264369157?autoplay=0&color=ffffff&title=0&byline=0&portrait=0&muted=1
+video
+
+action units
+https://de.wikipedia.org/wiki/Facial_Action_Coding_System
+
+
+finance
+http://www.rybn.org/ANTI/html/AFS.html
+algos: 
+http://www.rybn.org/ANTI/html/agents.html
+Papers:
+http://www.rybn.org/ANTI/html/codex.html
+1991 "Designing Economic Agents that Act Like Human Agents. A Behavioral Approach to Bounded Rationality" W. Brian Arthur:  
+rybn.dyndns.org/ANTI/ARTICLES/1991%20%28automata%29%20designing%20economic%20agents%20that%20acts%20like%20human%20agents%20a%20behavioural%20approach%20to%20bounded%20rationality%208p.pdf
+
+
+bitcoin
+bitlisten:
+https://www.bitlisten.com/
+
+blockchain demo
+https://github.com/anders94/blockchain-demo/
+blockchain.mp4
+https://youtu.be/_160oMzblY8?t=4
+<iframe width="1221" height="687" src="https://www.youtube.com/embed/_160oMzblY8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+https://medium.com/@spenserhuang/learn-build-a-javascript-blockchain-part-1-ca61c285821e
+
+
+money:
+https://www.quandl.com/data/TOCOM/INDEX_GC-Nikkei-TOCOM-Gold-Index
+https://www.quandl.com/data/TOCOM-Tokyo-Commodities-Exchange
+
+
+fractal lab:
+http://hirnsohle.de/test/fractalLab/
+  julia mode possible
+http://www.malinc.se/m/JuliaSets.php
+
+Daten:
+transparenzportal
+https://transparenz.karlsruhe.de/dataset/points-of-interest
+http://codeforkarlsruhe.github.io/access_map_ka/
+https://transparenz.karlsruhe.de/dataset/spielflachenversorgung/resource/6a8f8357-8151-4afc-958a-dc869b284d79?filters=Stadtteil%3ANeureut
+https://transparenz.karlsruhe.de/showcase/die-bundestagswahl-2017-in-den-karlsruher-stadtteilen
+https://web3.karlsruhe.de/Stadtentwicklung/statistik/gizeh/index.html?indicator=i202&select=Karlsruhe

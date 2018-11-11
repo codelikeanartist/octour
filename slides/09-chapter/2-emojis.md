@@ -10,7 +10,7 @@ Infos zu "Action Units": https://imotions.com/blog/facial-action-coding-system/
 
 </div>
 
-<div class="column-right">
+<div class="column-right-img">
 
 ![](https://imotions.com/wp-content/uploads/2016/12/AU12.gif)
 

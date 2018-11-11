@@ -297,7 +297,7 @@ body {
   
 /* ak columns */  
 .column-left  {
-    width: 50%; 
+    width: 48%; 
     float:left;
     font-family: "RobotoCondensed"; 
     text-align: left;
@@ -308,10 +308,17 @@ body {
 }
 
 .column-right {
-    width: 50%; 
+    width: 48%; 
     float:right;
     font-family: "RobotoCondensed";
     text-align: left;
+}
+
+/* don't align images to left in right column */
+.column-right-img {
+    width: 48%; 
+    float:right;
+    font-family: "RobotoCondensed";
 }
 
 .column-right ul, .column-right p {
