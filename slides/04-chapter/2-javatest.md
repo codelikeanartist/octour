@@ -10,7 +10,8 @@ https://jsfiddle.net
 ![](images/gol.svg)
 </div>
 
-<!--
+note:
+
 var gameOfLife = new terra.Terrarium(25, 25, {
   trails: 0.9, periodic: true, background: [22, 22, 22]
 });
@@ -30,5 +31,3 @@ terra.registerCA({
 gameOfLife.grid = gameOfLife.makeGrid('GoL');
 gameOfLife.animate();
 
-
--->
