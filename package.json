@@ -1,0 +1,27 @@
+{
+  "name": "actiontour",
+  "version": "1.0.0",
+  "description": "[Start the tour here](http://digital-codes.de/zkm/action/index.html)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digital-codes/octour.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/digital-codes/octour/issues"
+  },
+  "homepage": "https://github.com/digital-codes/octour#readme",
+  "dependencies": {
+    "http-server": "^0.11.1",
+    "katex": "^0.7.1",
+    "prez": "^4.7.0",
+    "reveal.js": "^3.7.0",
+    "reveal.js-chalkboard": "^1.0.0",
+    "reveal.js-menu": "^0.8.1"
+  }
+}
